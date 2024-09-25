@@ -23,32 +23,6 @@ const { FivemQuery } = require('fivem-monitor');
 
 ### Functions
 
-#### `getServerInfo(serverIP, serverPort, retries = 3, delay = 5000)`
-Fetches the server information from the `/info.json` endpoint.
-
-- **Parameters**:
-  - `serverIP` (String): The IP address of the FiveM server.
-  - `serverPort` (Number): The port of the FiveM server.
-  - `retries` (Number, Optional): Number of retry attempts if the request fails due to rate limiting (default is 3).
-  - `delay` (Number, Optional): Delay in milliseconds between retry attempts (default is 5000ms).
-
-- **Returns**: 
-  - On success, returns the JSON data containing server information.
-  - On failure, throws an error.
-
-#### `getServerPlayer(ip, port, retries = 3, delay = 5000)`
-Fetches the current player data from the `/players.json` endpoint.
-
-- **Parameters**:
-  - `ip` (String): The IP address of the FiveM server.
-  - `port` (Number): The port of the FiveM server.
-  - `retries` (Number, Optional): Number of retry attempts if the request fails due to rate limiting (default is 3).
-  - `delay` (Number, Optional): Delay in milliseconds between retry attempts (default is 5000ms).
-
-- **Returns**: 
-  - On success, returns the JSON data containing player information.
-  - On failure, throws an error.
-
 #### `FivemQuery(ip, port)`
 Fetches both the server information and player data and returns them as a combined object.
 
@@ -87,6 +61,3 @@ FivemQuery(ip, port)
 The functions include built-in error handling and retries for cases where the server responds with a 429 (Too Many Requests) error. The number of retry attempts and delay between attempts can be configured using the optional parameters `retries` and `delay`.
 
 If the function fails to fetch the data after all retry attempts, it will throw an error, which should be caught and handled appropriately.
-
-### License
-This package is free to use and modify.
